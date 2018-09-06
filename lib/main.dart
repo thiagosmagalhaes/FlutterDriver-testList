@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:post_list/strings.dart';
+import 'package:flutterdriver_test_list/strings.dart';
 
 void main() => runApp(new MyApp());
 
