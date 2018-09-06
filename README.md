@@ -1,6 +1,6 @@
-# post_list
+# FlutterDriver-testList
 
-A new Flutter application.
+Using FlutterDriver to test the items in a ListView.
 
 ## Getting Started
 
