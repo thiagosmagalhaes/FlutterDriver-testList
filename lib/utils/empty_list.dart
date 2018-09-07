@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutterdriver_test_list/utils/grid.dart';
 import 'package:flutterdriver_test_list/utils/strings.dart';
 
-void main() => runApp(new MyApp());
+void main() => runApp(new MyEmptyList());
 
 
 
-class MyApp extends StatelessWidget {
+class MyEmptyList extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -15,22 +15,23 @@ class MyApp extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new MyHomePage(title: 'FlutterDriver test'),
+      home: new EmptyList(title: 'FlutterDriver test'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class EmptyList extends StatefulWidget {
+  EmptyList({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _MyHomePageState createState() => new _MyHomePageState();
+  _EmptyList createState() => new _EmptyList();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _EmptyList extends State<EmptyList> {
   @override
+  List<String> NAMESLIST = null;
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
@@ -38,11 +39,11 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: NAMESLIST != null
           ? new GridView.count(
-              key: Key("itens"),
-              crossAxisCount: 4,
-              children: NAMESLIST.map((String value) {
-                return Grid(value, NAMESLIST.indexOf(value));
-              }).toList())
+          key: Key("itens"),
+          crossAxisCount: 4,
+          children: NAMESLIST.map((String value) {
+            return Grid(value, NAMESLIST.indexOf(value));
+          }).toList())
           : new Text(EMPTY), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
